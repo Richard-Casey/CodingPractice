@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\riche\OneDrive\Desktop\s233122\CodingPractice\GameEngineDevelopment\GameEngine\GameEngine\main.cpp(5,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  GameEngine.vcxproj -> C:\Users\riche\OneDrive\Desktop\s233122\CodingPractice\GameEngineDevelopment\GameEngine\Debug\GameEngine.exe
