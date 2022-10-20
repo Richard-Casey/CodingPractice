@@ -1,8 +1,7 @@
 #include "SDL.h"
 #include "game.h"
 #include "input.h"
-
-// PAGE 16 OF TUTORIAL 01!
+#undef main
 
 int main(int argc, char* argv[])
 {
@@ -10,7 +9,12 @@ int main(int argc, char* argv[])
 
 		if (game)
 		{
-			game->SetDisplayColour();	// Set and show our coloured display
+			while (!game->input->KeyIsPressed(KEY_ESCAPE)) // While the escape key is NOT being pressed - Update the game!
+															// This is the main loop for the whole progamme
+			{
+				game->Update();
+			}
+
 			delete game;				// clean up
 			game = nullptr;
 		}

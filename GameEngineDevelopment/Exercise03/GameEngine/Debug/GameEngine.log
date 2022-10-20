@@ -1,7 +1,6 @@
 ﻿  game.cpp
-  input.cpp
-C:\Users\riche\OneDrive\Desktop\s233122\CodingPractice\GameEngineDevelopment\Exercise03\GameEngine\input.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Administrator\Documents\GitHub\CodingPractice\GameEngineDevelopment\Exercise03\GameEngine\input.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   main.cpp
-C:\Users\riche\OneDrive\Desktop\s233122\CodingPractice\GameEngineDevelopment\Exercise03\GameEngine\input.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Administrator\Documents\GitHub\CodingPractice\GameEngineDevelopment\Exercise03\GameEngine\input.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   Generating Code...
-  GameEngine.vcxproj -> C:\Users\riche\OneDrive\Desktop\s233122\CodingPractice\GameEngineDevelopment\Exercise03\Debug\GameEngine.exe
+  GameEngine.vcxproj -> C:\Users\Administrator\Documents\GitHub\CodingPractice\GameEngineDevelopment\Exercise03\Debug\GameEngine.exe

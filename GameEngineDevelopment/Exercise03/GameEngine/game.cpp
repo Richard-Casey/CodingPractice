@@ -1,4 +1,35 @@
 #include "game.h"
+#include "input.h"
+
+
+void Game::SetDisplayColour(Uint8 r, Uint8 g, Uint8 b, Uint8 a)
+{
+	if (m_Renderer)
+	{
+		// Render in our Purple colour
+		int result = SDL_SetRenderDrawColor(
+			m_Renderer,	// Our Target renderer
+			r,			// Red
+			g,			// Green
+			b,			// Blue
+			a			// Alpha
+		);
+
+		// Wipe the display top the colour that we just set
+		//SDL_RenderClear(m_Renderer);
+
+		// Show what weve drawn
+		//SDL_RenderPresent(m_Renderer);
+
+		// Pause for 5 secs
+		//SDL_Delay(1000);
+	}
+}
+
+void Game::CheckEvents()
+{
+
+}
 
 Game::Game()
 {
@@ -11,9 +42,9 @@ Game::Game()
 	//create the window
 	m_Window = SDL_CreateWindow
 	(
-		"My First Window",		// Title
-		250,					// initial x position
-		200,					// initial Y position
+		"We're getting there - Here have a window, congratulations",		// Title
+		600,					// initial x position
+		300,					// initial Y position
 		640,					// Width in pixels
 		480,					// Height in pixels
 		0						// Window behaviour flag (ignore for now)
@@ -44,33 +75,10 @@ Game::Game()
 		}
 }
 
-void Game::SetDisplayColour()
-{
-	if (m_Renderer)
-	{
-		// Render in our Purple colour
-		int result = SDL_SetRenderDrawColor(
-			m_Renderer,	// Our Target renderer
-			153,		// Red
-			0,			// Green
-			153,		// Blue
-			255			// Alpha
-		);
-
-		// Wipe the displau top the colour that we just set
-		SDL_RenderClear(m_Renderer);
-
-		// Show what weve drawn
-		SDL_RenderPresent(m_Renderer);
-
-		// Pause for 5 secs
-		SDL_Delay(1000);
-	}
-}
-
-
 Game::~Game()
 {
+	delete input;
+	input = nullptr;
 	// Clean Up
 	// Dont foreget - we destroy in the REVERSE order they were created
 
@@ -85,5 +93,32 @@ Game::~Game()
 	}
 }
 
+void Game::Update(void)
+{
+	input->Update();
 
-		
+	// Increase r value
+	if (input->KeyIsPressed(KEY_R))
+	{
+		if (++r > 255) r = 0; // if the value of r reaches 255 it resets to 0
+	}
+
+	// Increase g value
+	if (input->KeyIsPressed(KEY_G))
+	{
+		if (++g > 255) g = 0; // if the value of g reaches 255 it resets to 0
+	}
+
+	// Increase b value
+	if (input->KeyIsPressed(KEY_B))
+	{
+		if (++b > 255) b = 0; // if the value of b reaches 255 it resets to 0
+	}
+
+	SetDisplayColour(r, g, b, a); // Set our colour display (rgba defined in the game header)
+
+	SDL_RenderPresent(m_Renderer);	// Show what we've drawn
+
+	SDL_Delay(16);	// Pause for 1/60th sec (ish)
+	
+}
