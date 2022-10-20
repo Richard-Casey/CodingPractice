@@ -1,12 +1,7 @@
 #include "SDL.H"
 #include "input.h"
 
-input::input()
-{
-
-}
-
-void input::Update(void)
+void Input::Update(void)
 {
 	// Loop throuigh all of the events in the event list
 	while (SDL_PollEvent(&m_Event) != NULL)
@@ -65,12 +60,17 @@ void input::Update(void)
 	}
 }
 
-input::~input()
+Input::Input()
 {
 
 }
 
-bool input::KeyIsPressed(KEYS_PRESSED_LIST key)
+Input::~Input()
+{
+
+}
+
+bool Input::KeyIsPressed(KEYS_PRESSED_LIST key)
 {
 	return m_KeysPressed[key];
 }
